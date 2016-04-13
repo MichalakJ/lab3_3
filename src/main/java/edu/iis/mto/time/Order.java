@@ -16,7 +16,11 @@ public class Order {
 		orderState = State.CREATED;
                 this.time = time;
 	}
-
+        
+        public void setTime(Time time){
+            this.time = time;
+        }
+        
 	public void addItem(OrderItem item) {
 		requireState(State.CREATED, State.SUBMITTED);
 
@@ -29,7 +33,7 @@ public class Order {
 		requireState(State.CREATED);
 
 		orderState = State.SUBMITTED;
-		subbmitionDate = new DateTime();
+		subbmitionDate = new DateTime(time.getCurrentTime());
 
 	}
 
